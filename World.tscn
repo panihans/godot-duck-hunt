@@ -1,0 +1,424 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Sprites/rifle.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/icon_bullet_gold_long.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/backgroundEmpty.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/treePine.png" type="Texture" id=4]
+[ext_resource path="res://Player.gd" type="Script" id=5]
+[ext_resource path="res://Font/new_dynamicfont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Sprites/houseSmallAlt2.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/bush1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/towerAlt.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/treeLong.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/hills.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/tower.png" type="Texture" id=12]
+[ext_resource path="res://Spawns.gd" type="Script" id=13]
+[ext_resource path="res://Sprites/houseSmall2.png" type="Texture" id=14]
+[ext_resource path="res://Ammo.gd" type="Script" id=15]
+[ext_resource path="res://Sprites/crosshair_red_large.png" type="Texture" id=16]
+[ext_resource path="res://YSort.gd" type="Script" id=17]
+[ext_resource path="res://Sprites/icon_bullet_empty_long.png" type="Texture" id=18]
+[ext_resource path="res://Sound/reload.wav" type="AudioStream" id=19]
+[ext_resource path="res://Sound/fire.wav" type="AudioStream" id=20]
+[ext_resource path="res://Sound/empty.wav" type="AudioStream" id=21]
+
+[node name="World" type="Node"]
+
+[node name="Background" type="Node" parent="."]
+
+[node name="Distance" type="Sprite" parent="Background"]
+position = Vector2( 512, 88 )
+texture = ExtResource( 3 )
+
+[node name="Ground" type="Sprite" parent="Background"]
+modulate = Color( 0.623529, 0.823529, 0.494118, 1 )
+position = Vector2( 512, 400 )
+texture = ExtResource( 11 )
+
+[node name="Spawns" type="Node2D" parent="."]
+script = ExtResource( 13 )
+
+[node name="Timer" type="Timer" parent="Spawns"]
+wait_time = 2.0
+autostart = true
+
+[node name="YSort" type="YSort" parent="Spawns"]
+script = ExtResource( 17 )
+
+[node name="Bush" type="StaticBody2D" parent="Spawns/YSort"]
+position = Vector2( 106, 316 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Spawns/YSort/Bush"]
+position = Vector2( 60, -30 )
+texture = ExtResource( 8 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spawns/YSort/Bush"]
+position = Vector2( 60, -30 )
+polygon = PoolVector2Array( -57, 30, 60, 30, 58, 18, 49, 5, 48, 12, 34, 12, 28, 5, 35, -12, 31, -10, 23, -20, 7, -23, 6, -28, -3, -14, -22, -12, -24, -16, -36, 1, -40, -2, -39, 15, -53, 20, -59, 15 )
+
+[node name="Bush2" type="StaticBody2D" parent="Spawns/YSort"]
+position = Vector2( 185, 505 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Spawns/YSort/Bush2"]
+position = Vector2( 60, -30 )
+texture = ExtResource( 8 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spawns/YSort/Bush2"]
+position = Vector2( 60, -30 )
+polygon = PoolVector2Array( -57, 30, 60, 30, 58, 18, 49, 5, 48, 12, 34, 12, 28, 5, 35, -12, 31, -10, 23, -20, 7, -23, 6, -28, -3, -14, -22, -12, -24, -16, -36, 1, -40, -2, -39, 15, -53, 20, -59, 15 )
+
+[node name="Bush3" type="StaticBody2D" parent="Spawns/YSort"]
+position = Vector2( 439, 405 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Spawns/YSort/Bush3"]
+position = Vector2( 60, -30 )
+texture = ExtResource( 8 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spawns/YSort/Bush3"]
+position = Vector2( 60, -30 )
+polygon = PoolVector2Array( -57, 30, 60, 30, 58, 18, 49, 5, 48, 12, 34, 12, 28, 5, 35, -12, 31, -10, 23, -20, 7, -23, 6, -28, -3, -14, -22, -12, -24, -16, -36, 1, -40, -2, -39, 15, -53, 20, -59, 15 )
+
+[node name="Bush4" type="StaticBody2D" parent="Spawns/YSort"]
+position = Vector2( 668, 532 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Spawns/YSort/Bush4"]
+position = Vector2( 60, -30 )
+texture = ExtResource( 8 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spawns/YSort/Bush4"]
+position = Vector2( 60, -30 )
+polygon = PoolVector2Array( -57, 30, 60, 30, 58, 18, 49, 5, 48, 12, 34, 12, 28, 5, 35, -12, 31, -10, 23, -20, 7, -23, 6, -28, -3, -14, -22, -12, -24, -16, -36, 1, -40, -2, -39, 15, -53, 20, -59, 15 )
+
+[node name="Bush5" type="StaticBody2D" parent="Spawns/YSort"]
+position = Vector2( 740, 319 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Spawns/YSort/Bush5"]
+position = Vector2( 60, -30 )
+texture = ExtResource( 8 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spawns/YSort/Bush5"]
+position = Vector2( 60, -30 )
+polygon = PoolVector2Array( -57, 30, 60, 30, 58, 18, 49, 5, 48, 12, 34, 12, 28, 5, 35, -12, 31, -10, 23, -20, 7, -23, 6, -28, -3, -14, -22, -12, -24, -16, -36, 1, -40, -2, -39, 15, -53, 20, -59, 15 )
+
+[node name="SmallHouse" type="StaticBody2D" parent="Spawns/YSort"]
+position = Vector2( 185, 481 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Spawns/YSort/SmallHouse"]
+position = Vector2( 37.9, -35 )
+texture = ExtResource( 14 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spawns/YSort/SmallHouse"]
+position = Vector2( 37.9, -35 )
+polygon = PoolVector2Array( -30, 34, -32, -3, -37, -8, -14, -34, 14, -35, 36, -9, 31, -3, 30, 35 )
+
+[node name="SmallHouse3" type="StaticBody2D" parent="Spawns/YSort"]
+position = Vector2( 740, 259 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Spawns/YSort/SmallHouse3"]
+position = Vector2( 37.9, -35 )
+texture = ExtResource( 14 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spawns/YSort/SmallHouse3"]
+position = Vector2( 37.9, -35 )
+polygon = PoolVector2Array( -30, 34, -32, -3, -37, -8, -14, -34, 14, -35, 36, -9, 31, -3, 30, 35 )
+
+[node name="SmallHouse2" type="StaticBody2D" parent="Spawns/YSort"]
+position = Vector2( 606, 298 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Spawns/YSort/SmallHouse2"]
+position = Vector2( 37.9, -35 )
+texture = ExtResource( 7 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spawns/YSort/SmallHouse2"]
+position = Vector2( 37.9, -35 )
+polygon = PoolVector2Array( -30, 34, -32, -3, -37, -8, -14, -34, 14, -35, 36, -9, 31, -3, 30, 35 )
+
+[node name="SmallHouse4" type="StaticBody2D" parent="Spawns/YSort"]
+position = Vector2( 671, 563 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Spawns/YSort/SmallHouse4"]
+position = Vector2( 37.9, -35 )
+texture = ExtResource( 7 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spawns/YSort/SmallHouse4"]
+position = Vector2( 37.9, -35 )
+polygon = PoolVector2Array( -30, 34, -32, -3, -37, -8, -14, -34, 14, -35, 36, -9, 31, -3, 30, 35 )
+
+[node name="TowerHouse" type="StaticBody2D" parent="Spawns/YSort"]
+position = Vector2( 62, 350 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Spawns/YSort/TowerHouse"]
+position = Vector2( 36, -122 )
+texture = ExtResource( 12 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spawns/YSort/TowerHouse"]
+position = Vector2( 37.9, -35 )
+polygon = PoolVector2Array( -34.9, 35, 30.1, 35, 22.1, -6, 23.1, -111, 33.1, -123, 34.1, -147, -1.89999, -209, -34.9, -145, -35.9, -124, -24.9, -111, -23.9, -6, -28.9, 1 )
+
+[node name="TowerHouse2" type="StaticBody2D" parent="Spawns/YSort"]
+position = Vector2( 811, 368 )
+scale = Vector2( 2, 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Spawns/YSort/TowerHouse2"]
+position = Vector2( 36, -122 )
+texture = ExtResource( 9 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spawns/YSort/TowerHouse2"]
+position = Vector2( 37.9, -35 )
+polygon = PoolVector2Array( -34.9, 35, 30.1, 35, 22.1, -6, 23.1, -111, 33.1, -123, 34.1, -147, -1.89999, -209, -34.9, -145, -35.9, -124, -24.9, -111, -23.9, -6, -28.9, 1 )
+
+[node name="EvergreenTree" type="StaticBody2D" parent="Spawns/YSort"]
+position = Vector2( 575, 215 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Spawns/YSort/EvergreenTree"]
+position = Vector2( 52.9, -127 )
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spawns/YSort/EvergreenTree"]
+position = Vector2( 52.9, -127 )
+polygon = PoolVector2Array( -15, 126, 16, 125, 0, 77, 53, 77, 31, 29, 37, 29, 11, -42, 17, -46, -16, -124, -24, -60, -32, -40, -23, -40, -35, -7, -49, 24, -34, 24, -50, 84, -8, 78 )
+
+[node name="EvergreenTree3" type="StaticBody2D" parent="Spawns/YSort"]
+position = Vector2( 707, 434 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Spawns/YSort/EvergreenTree3"]
+position = Vector2( 52.9, -127 )
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spawns/YSort/EvergreenTree3"]
+position = Vector2( 52.9, -127 )
+polygon = PoolVector2Array( -15, 126, 16, 125, 0, 77, 53, 77, 31, 29, 37, 29, 11, -42, 17, -46, -16, -124, -24, -60, -32, -40, -23, -40, -35, -7, -49, 24, -34, 24, -50, 84, -8, 78 )
+
+[node name="EvergreenTree2" type="StaticBody2D" parent="Spawns/YSort"]
+position = Vector2( 175, 377 )
+scale = Vector2( 1.5, 1.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Spawns/YSort/EvergreenTree2"]
+position = Vector2( 52.9, -127 )
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spawns/YSort/EvergreenTree2"]
+position = Vector2( 52.9, -127 )
+polygon = PoolVector2Array( -15, 126, 16, 125, 0, 77, 53, 77, 31, 29, 37, 29, 11, -42, 17, -46, -16, -124, -24, -60, -32, -40, -23, -40, -35, -7, -49, 24, -34, 24, -50, 84, -8, 78 )
+
+[node name="LeafyTree" type="StaticBody2D" parent="Spawns/YSort"]
+position = Vector2( 413, 609 )
+scale = Vector2( 2, 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Spawns/YSort/LeafyTree"]
+position = Vector2( 41, -124 )
+texture = ExtResource( 10 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spawns/YSort/LeafyTree"]
+position = Vector2( 41, -123 )
+polygon = PoolVector2Array( -4.89996, 120, -3.89996, 73, -15.9, 50, -26.9, 47, -36.9, 34, -29.9, -97, -16.9, -114, 1.10004, -123, 11.1, -114, 22.1, -115, 33.1, -56, 37.1, 32, 30.1, 47, 16.1, 53, 6.10004, 67, 6.10004, 81, 6.10004, 124, -5.89996, 123 )
+
+[node name="LeafyTree2" type="StaticBody2D" parent="Spawns/YSort"]
+position = Vector2( 100, 559 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Spawns/YSort/LeafyTree2"]
+position = Vector2( 41, -124 )
+texture = ExtResource( 10 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spawns/YSort/LeafyTree2"]
+position = Vector2( 41, -123 )
+polygon = PoolVector2Array( -4.89996, 120, -3.89996, 73, -15.9, 50, -26.9, 47, -36.9, 34, -29.9, -97, -16.9, -114, 1.10004, -123, 11.1, -114, 22.1, -115, 33.1, -56, 37.1, 32, 30.1, 47, 16.1, 53, 6.10004, 67, 6.10004, 81, 6.10004, 124, -5.89996, 123 )
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2( 926, 454 )
+z_index = 4000
+script = ExtResource( 5 )
+
+[node name="Ammo" type="Node2D" parent="Player"]
+position = Vector2( -108, -111 )
+script = ExtResource( 15 )
+
+[node name="Bullet" type="TextureProgress" parent="Player/Ammo"]
+margin_right = 21.0
+margin_bottom = 44.0
+rect_scale = Vector2( 0.5, 0.5 )
+value = 100.0
+texture_under = ExtResource( 18 )
+texture_progress = ExtResource( 2 )
+fill_mode = 3
+
+[node name="Bullet2" type="TextureProgress" parent="Player/Ammo"]
+margin_left = 10.0
+margin_right = 31.0
+margin_bottom = 44.0
+rect_scale = Vector2( 0.5, 0.5 )
+value = 100.0
+texture_under = ExtResource( 18 )
+texture_progress = ExtResource( 2 )
+fill_mode = 3
+
+[node name="Bullet3" type="TextureProgress" parent="Player/Ammo"]
+margin_left = 20.0
+margin_right = 41.0
+margin_bottom = 44.0
+rect_scale = Vector2( 0.5, 0.5 )
+value = 100.0
+texture_under = ExtResource( 18 )
+texture_progress = ExtResource( 2 )
+fill_mode = 3
+
+[node name="Bullet4" type="TextureProgress" parent="Player/Ammo"]
+margin_left = 30.0
+margin_right = 51.0
+margin_bottom = 44.0
+rect_scale = Vector2( 0.5, 0.5 )
+value = 100.0
+texture_under = ExtResource( 18 )
+texture_progress = ExtResource( 2 )
+fill_mode = 3
+
+[node name="Bullet5" type="TextureProgress" parent="Player/Ammo"]
+margin_left = 40.0
+margin_right = 61.0
+margin_bottom = 44.0
+rect_scale = Vector2( 0.5, 0.5 )
+value = 100.0
+texture_under = ExtResource( 18 )
+texture_progress = ExtResource( 2 )
+fill_mode = 3
+
+[node name="ReloadSound" type="AudioStreamPlayer2D" parent="Player/Ammo"]
+stream = ExtResource( 19 )
+
+[node name="FireSound" type="AudioStreamPlayer2D" parent="Player/Ammo"]
+stream = ExtResource( 20 )
+
+[node name="EmptySound" type="AudioStreamPlayer2D" parent="Player/Ammo"]
+stream = ExtResource( 21 )
+
+[node name="Crosshair" type="Sprite" parent="Player"]
+position = Vector2( -75, -150 )
+texture = ExtResource( 16 )
+
+[node name="Gun" type="Sprite" parent="Player"]
+texture = ExtResource( 1 )
+offset = Vector2( 14, 20 )
+
+[node name="GameTimer" type="Timer" parent="Player"]
+autostart = true
+
+[node name="ScoreTextLabel2" type="RichTextLabel" parent="Player"]
+margin_left = -109.0
+margin_top = -88.0
+margin_right = -21.0
+margin_bottom = -70.0
+size_flags_horizontal = 15
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "'R' to reload"
+scroll_active = false
+
+[node name="UI" type="Node2D" parent="."]
+position = Vector2( 1, 546 )
+z_index = 4001
+
+[node name="GameOverScreen" type="ColorRect" parent="UI"]
+margin_left = -4.0
+margin_top = -548.0
+margin_right = 1024.0
+margin_bottom = 56.0
+color = Color( 0, 0, 0, 0.792157 )
+
+[node name="RestartLabel" type="RichTextLabel" parent="UI/GameOverScreen"]
+margin_left = 265.0
+margin_top = 260.0
+margin_right = 851.0
+margin_bottom = 334.0
+size_flags_horizontal = 15
+size_flags_vertical = 3
+custom_fonts/normal_font = ExtResource( 6 )
+text = "'R' to restart"
+
+[node name="ScoreTextLabel" type="RichTextLabel" parent="UI"]
+margin_left = -1.0
+margin_top = -18.0
+margin_right = 287.0
+margin_bottom = 54.0
+size_flags_horizontal = 15
+size_flags_vertical = 3
+custom_fonts/normal_font = ExtResource( 6 )
+text = "SCORE:"
+
+[node name="ScoreValueLabel" type="RichTextLabel" parent="UI"]
+margin_left = 287.0
+margin_top = -18.0
+margin_right = 797.0
+margin_bottom = 54.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/mono_font = ExtResource( 6 )
+custom_fonts/bold_italics_font = ExtResource( 6 )
+custom_fonts/italics_font = ExtResource( 6 )
+custom_fonts/bold_font = ExtResource( 6 )
+custom_fonts/normal_font = ExtResource( 6 )
+text = "###"
+
+[node name="TimerValueLabel" type="RichTextLabel" parent="UI"]
+margin_left = 867.0
+margin_top = -18.0
+margin_right = 1022.0
+margin_bottom = 54.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/mono_font = ExtResource( 6 )
+custom_fonts/bold_italics_font = ExtResource( 6 )
+custom_fonts/italics_font = ExtResource( 6 )
+custom_fonts/bold_font = ExtResource( 6 )
+custom_fonts/normal_font = ExtResource( 6 )
+text = "10"
+
+[connection signal="timeout" from="Spawns/Timer" to="Spawns" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Player/GameTimer" to="Player" method="_on_GameTimer_timeout"]
